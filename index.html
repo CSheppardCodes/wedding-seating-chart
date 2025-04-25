@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chris & Maddi's Wedding Seating Chart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: #fffaf5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background: #ffe9dc;
+      padding: 2rem;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      margin: 0;
+      color: #d17b57;
+    }
+
+    main {
+      max-width: 600px;
+      width: 90%;
+      padding: 2rem;
+      background: white;
+      margin-top: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    label, select {
+      display: block;
+      width: 100%;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    select {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      background-color: #fffaf5;
+    }
+
+    .result {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #914c34;
+      margin-top: 1rem;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Chris & Maddi's Wedding</h1>
+    <p>Find Your Seat</p>
+  </header>
+
+  <main>
+    <label for="guestSelect">Select your name:</label>
+    <select id="guestSelect" onchange="showSeating()">
+      <option value="">-- Please Select --</option>
+      <option value="Emily Johnson">Emily Johnson</option>
+      <option value="Michael Smith">Michael Smith</option>
+      <option value="Sarah Patel">Sarah Patel</option>
+      <option value="John Doe">John Doe</option>
+      <option value="Chris Sheppard">Chris Sheppard</option>
+    </select>
+
+    <div id="seatingResult" class="result"></div>
+  </main>
+
+  <footer>
+    With love, Chris & Maddi 💕
+  </footer>
+
+  <script>
+    const seatingChart = {
+      "Emily Johnson": "Table 3 - Near the dance floor",
+      "Michael Smith": "Table 1 - Family table",
+      "Sarah Patel": "Table 7 - By the window",
+      "John Doe": "Table 5 - Near the bar",
+      "Chris Sheppard": "Table 2 - Head table with the couple 🥂"
+    };
+
+    function showSeating() {
+      const name = document.getElementById("guestSelect").value;
+      const resultDiv = document.getElementById("seatingResult");
+      if (seatingChart[name]) {
+        resultDiv.textContent = `You're seated at: ${seatingChart[name]}`;
+      } else {
+        resultDiv.textContent = "";
+      }
+    }
+  </script>
+</body>
+</html>
